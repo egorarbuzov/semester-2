@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <filesystem>
 
 using namespace std;
 
@@ -27,5 +28,12 @@ int main() {
     
     fin.close();
     fout2.close();
+    
+    uintmax_t size1 = filesystem::file_size("FILE1.txt");
+    uintmax_t size2 = filesystem::file_size("FILE2.txt");
+    
+    cout << "Размер файла FILE1 " << size1 << " байт" << endl;
+    cout << "Размер файла FILE2 " << size2 << " байт" << endl;
+    
     return 0;
 }

@@ -1,0 +1,1 @@
+bool isYearVis(int year);

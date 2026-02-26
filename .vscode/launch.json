@@ -1,0 +1,39 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C/C++ Runner: Debug Session",
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "/Users/egorarbuzov/Documents/GitHub/semester-2/KPO/lab1/lab1/lab1",
+            "program": "/Users/egorarbuzov/Documents/GitHub/semester-2/KPO/lab1/lab1/lab1/main"
+        },
+        {
+            "name": "C/C++: g++ сборка и отладка (все файлы)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/Users/egorarbuzov/Documents/GitHub/semester-2/KPO/lab1/lab1/lab1/main",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "/Users/egorarbuzov/Documents/GitHub/semester-2/KPO/lab1/lab1/lab1",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "C/C++: g++ сборка всех файлов"
+        },
+        {
+            "name": "C/C++: clang сборка и отладка (все файлы)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/Users/egorarbuzov/Documents/GitHub/semester-2/KPO/lab1/lab1/lab1/main",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "/Users/egorarbuzov/Documents/GitHub/semester-2/KPO/lab1/lab1/lab1",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "C/C++: clang сборка всех файлов"
+        }
+    ]
+}

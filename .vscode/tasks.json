@@ -1,0 +1,52 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "C/C++: g++ сборка всех файлов",
+            "type": "shell",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "main.cpp",
+                "isyearvis.cpp",
+                "daynumber.cpp",
+                "-o",
+                "main"
+            ],
+            "options": {
+                "cwd": "/Users/egorarbuzov/Documents/GitHub/semester-2/KPO/lab1/lab1/lab1"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Компиляция всех файлов проекта"
+        },
+        {
+            "label": "C/C++: clang сборка всех файлов",
+            "type": "shell",
+            "command": "/usr/bin/clang++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "main.cpp",
+                "isyearvis.cpp",
+                "daynumber.cpp",
+                "-o",
+                "main"
+            ],
+            "options": {
+                "cwd": "/Users/egorarbuzov/Documents/GitHub/semester-2/KPO/lab1/lab1/lab1"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "Компиляция всех файлов проекта с clang"
+        }
+    ]
+}
