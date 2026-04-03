@@ -34,6 +34,10 @@ int main() {
     case 2: {
       int numToDelete = -1;
       cout << "Выберите номер задачи: "; cin >> numToDelete;
+        if (numToDelete > taskCount || numToDelete < 0) {
+            cout << "Неверный номер задачи!" << endl;
+            break;
+        }
       for (int i = numToDelete - 1; i < taskCount; i++) {
         strcpy(tasks[i], tasks[i + 1]);
       }

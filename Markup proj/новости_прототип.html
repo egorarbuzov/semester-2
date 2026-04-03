@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Qatar Airways Style — Новости</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #fff; }
+        .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: white; border-bottom: 1px solid #eef2f6; }
+        .logo-icon { width: 48px; height: 48px; background: #8a2c2d; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; }
+        .nav-icons { display: flex; gap: 1.5rem; }
+        .nav-icons i { font-size: 1.4rem; color: #2c2e3a; cursor: pointer; transition: color 0.2s; }
+        .nav-icons i:hover { color: #8a2c2d; }
+        .page-hero { background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/2101829/pexels-photo-2101829.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat; min-height: 320px; display: flex; align-items: center; justify-content: center; }
+        .hero-icon-large { background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-radius: 100px; padding: 1.2rem 2rem; }
+        .hero-icon-large i { font-size: 3rem; color: #8a2c2d; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 2.5rem 2rem; }
+        /* Сетка новостных карточек */
+        .news-grid { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+        .news-card {
+            flex: 1;
+            min-width: 280px;
+            background: #ffffff;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            border: 1px solid #f0f2f5;
+        }
+        .news-card:hover { transform: translateY(-4px); }
+        .news-img { height: 180px; background-size: cover; background-position: center; }
+        .news-icon-row { padding: 1.2rem; display: flex; align-items: center; gap: 12px; border-top: 1px solid #f0f2f5; }
+        .news-icon-row i { font-size: 1.4rem; color: #8a2c2d; }
+        .action-button { background: #8a2c2d; border: none; border-radius: 40px; padding: 0.8rem 1.8rem; color: white; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
+        .action-button:hover { background: #631f20; }
+        /* Footer такой же как на первой странице */
+        .footer { background: #f8fafd; padding: 3rem 2rem 2rem; border-top: 1px solid #eef2f6; margin-top: 3rem; }
+        .footer-grid { max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; }
+        .footer-col { flex: 1; min-width: 140px; display: flex; flex-direction: column; gap: 1rem; }
+        .footer-icon-row { display: flex; gap: 1rem; align-items: center; }
+        .footer-icon-row i { font-size: 1.5rem; color: #4a5568; }
+        .social-icons { display: flex; gap: 1.5rem; }
+        .social-icons i { font-size: 1.4rem; color: #4a5568; cursor: pointer; }
+        hr { margin: 2rem 0 1rem; border: none; border-top: 1px solid #e2e8f0; }
+        @media (max-width: 800px) { .top-bar { padding: 0.8rem 1.5rem; } .container { padding: 1.5rem; } }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="logo-icon"><i class="fas fa-plane"></i></div>
+        <div class="nav-icons">
+            <i class="fas fa-search"></i>
+            <i class="far fa-user-circle"></i>
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-globe"></i>
+        </div>
+    </div>
+
+    <div class="page-hero">
+        <div class="hero-icon-large">
+            <i class="fas fa-newspaper"></i>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Сетка новостей: каждая карточка содержит изображение и набор иконок-тем -->
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-img" style="background-image: url('https://images.pexels.com/photos/296887/pexels-photo-296887.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+                <div class="news-icon-row"><i class="fas fa-calendar-week"></i> <i class="fas fa-globe"></i> <i class="fas fa-chart-line"></i></div>
+            </div>
+            <div class="news-card">
+                <div class="news-img" style="background-image: url('https://images.pexels.com/photos/1164572/pexels-photo-1164572.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+                <div class="news-icon-row"><i class="fas fa-award"></i> <i class="fas fa-star"></i> <i class="fas fa-trophy"></i></div>
+            </div>
+            <div class="news-card">
+                <div class="news-img" style="background-image: url('https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+                <div class="news-icon-row"><i class="fas fa-plane-arrival"></i> <i class="fas fa-map-marked-alt"></i> <i class="fas fa-hotel"></i></div>
+            </div>
+        </div>
+        <!-- Кнопка "больше новостей" без текста -->
+        <div style="display: flex; justify-content: center; margin-top: 2.5rem;">
+            <button class="action-button" aria-label="more news">
+                <i class="fas fa-arrow-circle-right"></i> <i class="fas fa-plus-circle"></i>
+            </button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col"><div class="footer-icon-row"><i class="fas fa-phone-alt"></i></div><div class="footer-icon-row"><i class="far fa-envelope"></i></div></div>
+            <div class="footer-col"><div class="footer-icon-row"><i class="fas fa-map-pin"></i></div><div class="footer-icon-row"><i class="fas fa-clock"></i></div></div>
+            <div class="footer-col"><div class="social-icons"><i class="fab fa-facebook-f"></i><i class="fab fa-twitter"></i><i class="fab fa-instagram"></i><i class="fab fa-linkedin-in"></i></div></div>
+        </div>
+        <hr>
+        <div class="footer-icon-row" style="justify-content: center;"><i class="fas fa-plane"></i><i class="fas fa-globe-asia"></i></div>
+    </footer>
+</body>
+</html>

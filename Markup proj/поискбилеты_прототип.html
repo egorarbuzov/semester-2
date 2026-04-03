@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Qatar Airways Style — Результаты поиска (прототип)</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f7fb;
+            color: #1a1e2b;
+            line-height: 1.4;
+        }
+
+        /* ----- ШАПКА (без текста) ----- */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: white;
+            border-bottom: 1px solid #eef2f6;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: #8a2c2d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-icons i {
+            font-size: 1.4rem;
+            color: #2c2e3a;
+            cursor: pointer;
+        }
+
+        /* ----- ПАНЕЛЬ ПОИСКА (компактная, без текста) ----- */
+        .search-bar {
+            background: white;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #eef2f6;
+            position: sticky;
+            top: 73px;
+            z-index: 99;
+        }
+
+        .search-params {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .param-pill {
+            background: #f8fafc;
+            border-radius: 40px;
+            padding: 0.6rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+        }
+        .param-pill i {
+            font-size: 1rem;
+            color: #8a2c2d;
+        }
+
+        .search-actions {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .icon-btn {
+            background: #f1f5f9;
+            border: none;
+            border-radius: 40px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .icon-btn i {
+            font-size: 1.2rem;
+            color: #2c3e50;
+        }
+
+        /* ----- ОСНОВНОЙ КОНТЕЙНЕР ----- */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* ----- ПАНЕЛЬ ФИЛЬТРОВ ----- */
+        .filters-panel {
+            background: white;
+            border-radius: 28px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #eef2f6;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            background: #f8fafc;
+            border-radius: 40px;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            min-width: 50px;
+            justify-content: center;
+        }
+        .filter-chip i {
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+
+        .sort-group {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .sort-icon {
+            background: white;
+            border-radius: 40px;
+            padding: 0.6rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+        }
+        .sort-icon i {
+            font-size: 1rem;
+            color: #4a5568;
+        }
+
+        /* ----- ЗАГОЛОВОК РЕЗУЛЬТАТОВ (только иконки) ----- */
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.8rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* ----- СПИСОК БИЛЕТОВ (карточки-прототипы) ----- */
+        .flights-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .flight-card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #eef2f6;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .flight-card:hover {
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+            border-color: #8a2c2d40;
+        }
+
+        /* Левая часть: авиакомпания, маршрут (только иконки) */
+        .flight-info {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            flex: 2;
+        }
+        .airline-icon {
+            width: 48px;
+            height: 48px;
+            background: #fef2f2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .airline-icon i {
+            font-size: 1.8rem;
+            color: #8a2c2d;
+        }
+        .route {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .city-pair {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .city-pair i {
+            font-size: 1.2rem;
+            color: #4a5568;
+        }
+        .arrow-icon {
+            color: #8a2c2d;
+            font-size: 1rem;
+        }
+        .time-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #f8fafc;
+            border-radius: 40px;
+            padding: 0.3rem 0.9rem;
+        }
+        .time-indicator i {
+            font-size: 0.8rem;
+            color: #8a2c2d;
+        }
+
+        /* Центральная часть: детали перелета */
+        .flight-details {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            flex: 1.5;
+        }
+        .detail-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #f8fafd;
+            border-radius: 40px;
+            padding: 0.4rem 1rem;
+        }
+        .detail-badge i {
+            font-size: 0.9rem;
+            color: #8a2c2d;
+        }
+
+        /* Правая часть: цена и кнопка */
+        .flight-action {
+            text-align: right;
+            min-width: 100px;
+        }
+        .price-block {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 6px;
+            margin-bottom: 0.5rem;
+        }
+        .price-block i {
+            font-size: 1.1rem;
+            color: #2c6e2f;
+        }
+        .select-btn {
+            background: #8a2c2d;
+            border: none;
+            border-radius: 40px;
+            padding: 0.5rem 1.2rem;
+            color: white;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .select-btn i {
+            font-size: 0.9rem;
+        }
+
+        /* ----- ПАГИНАЦИЯ ----- */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 2.5rem;
+        }
+        .page-icon {
+            background: white;
+            border-radius: 40px;
+            padding: 0.6rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            min-width: 44px;
+        }
+        .page-icon i {
+            font-size: 1rem;
+            color: #4a5568;
+        }
+        .page-icon.active {
+            background: #fef2f2;
+            border-color: #8a2c2d;
+        }
+        .page-icon.active i {
+            color: #8a2c2d;
+        }
+
+        /* ----- ПОДВАЛ ----- */
+        .footer {
+            background: #f8fafd;
+            padding: 3rem 2rem 2rem;
+            border-top: 1px solid #eef2f6;
+            margin-top: 3rem;
+        }
+        .footer-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .footer-col {
+            flex: 1;
+            min-width: 140px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .footer-icon-row {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .footer-icon-row i {
+            font-size: 1.5rem;
+            color: #4a5568;
+            cursor: pointer;
+        }
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .social-icons i {
+            font-size: 1.5rem;
+            color: #4a5568;
+            cursor: pointer;
+        }
+        hr {
+            margin: 2rem 0 1rem;
+            border: none;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 900px) {
+            .top-bar, .search-bar {
+                padding: 0.8rem 1rem;
+            }
+            .container {
+                padding: 1rem;
+            }
+            .flight-card {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .flight-action {
+                text-align: left;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .price-block {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+        ПРОТОТИП СТРАНИЦЫ РЕЗУЛЬТАТОВ ПОИСКА АВИАБИЛЕТОВ
+        Стиль Qatar Airways — сохранена ВСЯ структура и расположение элементов
+        УБРАНЫ ВСЕ ТЕКСТОВЫЕ НАДПИСИ — остались только иконки, блоки, пустые места
+        Это прототип, показывающий КАК будет выглядеть страница без текста
+    -->
+
+    <!-- ШАПКА: логотип + иконки навигации -->
+    <div class="top-bar">
+        <div class="logo-icon">
+            <i class="fas fa-plane"></i>
+        </div>
+        <div class="nav-icons">
+            <i class="fas fa-search"></i>
+            <i class="far fa-user-circle"></i>
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-globe"></i>
+        </div>
+    </div>
+
+    <!-- ПАНЕЛЬ ПОИСКА (параметры текущего поиска) — только иконки -->
+    <div class="search-bar">
+        <div class="search-params">
+            <div class="search-tags">
+                <div class="param-pill">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-location-dot"></i>
+                </div>
+                <div class="param-pill">
+                    <i class="far fa-calendar-alt"></i>
+                    <i class="fas fa-arrow-right"></i>
+                    <i class="far fa-calendar-check"></i>
+                </div>
+                <div class="param-pill">
+                    <i class="fas fa-user-friends"></i>
+                    <i class="fas fa-couch"></i>
+                </div>
+            </div>
+            <div class="search-actions">
+                <button class="icon-btn"><i class="fas fa-sliders-h"></i></button>
+                <button class="icon-btn"><i class="fas fa-redo-alt"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- ПАНЕЛЬ ФИЛЬТРОВ — только иконки -->
+        <div class="filters-panel">
+            <div class="filter-group">
+                <div class="filter-chip"><i class="fas fa-plane"></i></div>
+                <div class="filter-chip"><i class="fas fa-exchange-alt"></i></div>
+                <div class="filter-chip"><i class="fas fa-stopwatch"></i></div>
+                <div class="filter-chip"><i class="fas fa-tags"></i></div>
+            </div>
+            <div class="sort-group">
+                <div class="sort-icon"><i class="fas fa-sort-amount-down"></i></div>
+                <div class="sort-icon"><i class="fas fa-clock"></i></div>
+                <div class="sort-icon"><i class="fas fa-star"></i></div>
+            </div>
+        </div>
+
+        <!-- ЗАГОЛОВОК РЕЗУЛЬТАТОВ (счетчик, вид отображения) -->
+        <div class="results-header">
+            <div class="sort-group">
+                <div class="sort-icon"><i class="fas fa-list-ul"></i></div>
+            </div>
+            <div class="sort-group">
+                <div class="sort-icon"><i class="fas fa-th-large"></i></div>
+            </div>
+        </div>
+
+        <!-- СПИСОК НАЙДЕННЫХ БИЛЕТОВ — 6 карточек-прототипов -->
+        <div class="flights-list">
+            
+            <!-- Карточка билета 1 -->
+            <div class="flight-card">
+                <div class="flight-info">
+                    <div class="airline-icon"><i class="fas fa-plane"></i></div>
+                    <div class="route">
+                        <div class="city-pair"><i class="fas fa-map-pin"></i> <i class="fas fa-plane-departure"></i></div>
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                        <div class="city-pair"><i class="fas fa-flag-checkered"></i> <i class="fas fa-plane-arrival"></i></div>
+                        <div class="time-indicator"><i class="far fa-clock"></i> <i class="fas fa-hourglass-half"></i></div>
+                    </div>
+                </div>
+                <div class="flight-details">
+                    <div class="detail-badge"><i class="fas fa-suitcase"></i> <i class="fas fa-check"></i></div>
+                    <div class="detail-badge"><i class="fas fa-utensils"></i> <i class="fas fa-wifi"></i></div>
+                    <div class="detail-badge"><i class="fas fa-chair"></i></div>
+                </div>
+                <div class="flight-action">
+                    <div class="price-block"><i class="fas fa-tag"></i> <i class="fas fa-chart-line"></i></div>
+                    <button class="select-btn"><i class="fas fa-check-circle"></i> <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Карточка билета 2 -->
+            <div class="flight-card">
+                <div class="flight-info">
+                    <div class="airline-icon"><i class="fas fa-globe-asia"></i></div>
+                    <div class="route">
+                        <div class="city-pair"><i class="fas fa-map-marker-alt"></i> <i class="fas fa-plane"></i></div>
+                        <i class="fas fa-long-arrow-alt-right arrow-icon"></i>
+                        <div class="city-pair"><i class="fas fa-landmark"></i> <i class="fas fa-plane"></i></div>
+                        <div class="time-indicator"><i class="fas fa-exchange-alt"></i> <i class="fas fa-clock"></i></div>
+                    </div>
+                </div>
+                <div class="flight-details">
+                    <div class="detail-badge"><i class="fas fa-stopwatch"></i></div>
+                    <div class="detail-badge"><i class="fas fa-bag-shopping"></i> <i class="fas fa-check"></i></div>
+                </div>
+                <div class="flight-action">
+                    <div class="price-block"><i class="fas fa-coins"></i></div>
+                    <button class="select-btn"><i class="fas fa-check-circle"></i> <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Карточка билета 3 -->
+            <div class="flight-card">
+                <div class="flight-info">
+                    <div class="airline-icon"><i class="fas fa-crown"></i></div>
+                    <div class="route">
+                        <div class="city-pair"><i class="fas fa-city"></i> <i class="fas fa-fan"></i></div>
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                        <div class="city-pair"><i class="fas fa-building"></i> <i class="fas fa-taxi"></i></div>
+                        <div class="time-indicator"><i class="fas fa-moon"></i> <i class="fas fa-sun"></i></div>
+                    </div>
+                </div>
+                <div class="flight-details">
+                    <div class="detail-badge"><i class="fas fa-champagne-glasses"></i> <i class="fas fa-bed"></i></div>
+                    <div class="detail-badge"><i class="fas fa-wifi"></i> <i class="fas fa-tv"></i></div>
+                </div>
+                <div class="flight-action">
+                    <div class="price-block"><i class="fas fa-gem"></i></div>
+                    <button class="select-btn"><i class="fas fa-check-circle"></i> <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Карточка билета 4 -->
+            <div class="flight-card">
+                <div class="flight-info">
+                    <div class="airline-icon"><i class="fas fa-umbrella-beach"></i></div>
+                    <div class="route">
+                        <div class="city-pair"><i class="fas fa-tower-cell"></i> <i class="fas fa-sun"></i></div>
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                        <div class="city-pair"><i class="fas fa-pagoda"></i> <i class="fas fa-water"></i></div>
+                        <div class="time-indicator"><i class="fas fa-stopwatch"></i></div>
+                    </div>
+                </div>
+                <div class="flight-details">
+                    <div class="detail-badge"><i class="fas fa-coffee"></i></div>
+                    <div class="detail-badge"><i class="fas fa-luggage-cart"></i></div>
+                </div>
+                <div class="flight-action">
+                    <div class="price-block"><i class="fas fa-tag"></i> <i class="fas fa-fire"></i></div>
+                    <button class="select-btn"><i class="fas fa-check-circle"></i> <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Карточка билета 5 -->
+            <div class="flight-card">
+                <div class="flight-info">
+                    <div class="airline-icon"><i class="fas fa-kangaroo"></i></div>
+                    <div class="route">
+                        <div class="city-pair"><i class="fas fa-archway"></i> <i class="fas fa-plane"></i></div>
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                        <div class="city-pair"><i class="fas fa-opera"></i> <i class="fas fa-ship"></i></div>
+                        <div class="time-indicator"><i class="fas fa-infinity"></i> <i class="fas fa-clock"></i></div>
+                    </div>
+                </div>
+                <div class="flight-details">
+                    <div class="detail-badge"><i class="fas fa-dumbbell"></i> <i class="fas fa-spa"></i></div>
+                    <div class="detail-badge"><i class="fas fa-charging-station"></i></div>
+                </div>
+                <div class="flight-action">
+                    <div class="price-block"><i class="fas fa-chart-line"></i></div>
+                    <button class="select-btn"><i class="fas fa-check-circle"></i> <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Карточка билета 6 -->
+            <div class="flight-card">
+                <div class="flight-info">
+                    <div class="airline-icon"><i class="fas fa-fish"></i></div>
+                    <div class="route">
+                        <div class="city-pair"><i class="fas fa-desert"></i> <i class="fas fa-camel"></i></div>
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                        <div class="city-pair"><i class="fas fa-water"></i> <i class="fas fa-umbrella-beach"></i></div>
+                        <div class="time-indicator"><i class="fas fa-hourglass-start"></i> <i class="fas fa-sun"></i></div>
+                    </div>
+                </div>
+                <div class="flight-details">
+                    <div class="detail-badge"><i class="fas fa-glass-cheers"></i> <i class="fas fa-music"></i></div>
+                    <div class="detail-badge"><i class="fas fa-tshirt"></i></div>
+                </div>
+                <div class="flight-action">
+                    <div class="price-block"><i class="fas fa-gem"></i></div>
+                    <button class="select-btn"><i class="fas fa-check-circle"></i> <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ПАГИНАЦИЯ (только иконки) -->
+        <div class="pagination">
+            <div class="page-icon"><i class="fas fa-chevron-left"></i></div>
+            <div class="page-icon active"><i class="fas fa-circle" style="font-size: 0.6rem;"></i></div>
+            <div class="page-icon"><i class="fas fa-circle" style="font-size: 0.6rem;"></i></div>
+            <div class="page-icon"><i class="fas fa-circle" style="font-size: 0.6rem;"></i></div>
+            <div class="page-icon"><i class="fas fa-ellipsis-h"></i></div>
+            <div class="page-icon"><i class="fas fa-chevron-right"></i></div>
+        </div>
+    </div>
+
+    <!-- ПОДВАЛ (только иконки) -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-icon-row"><i class="fas fa-phone-alt"></i></div>
+                <div class="footer-icon-row"><i class="far fa-envelope"></i></div>
+            </div>
+            <div class="footer-col">
+                <div class="footer-icon-row"><i class="fas fa-map-pin"></i></div>
+                <div class="footer-icon-row"><i class="fas fa-clock"></i></div>
+            </div>
+            <div class="footer-col">
+                <div class="social-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin-in"></i>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-icon-row" style="justify-content: center;">
+            <i class="fas fa-plane"></i>
+            <i class="fas fa-globe-asia"></i>
+        </div>
+    </footer>
+
+</body>
+</html>

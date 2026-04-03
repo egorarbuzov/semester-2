@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "isYearVis.h"
 #include "dayNumber.h"
+#include "monthsFunc.h"
 
 bool isValidDate(int day, int month, int year, const int daysInMonth[]) {
     if (year < 0) return false;
@@ -15,20 +16,23 @@ bool isValidDate(int day, int month, int year, const int daysInMonth[]) {
 int main() {
     int day = 0, month = 0, year = 0;
     int days[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    string months[12] = { "январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь" };
     
     cout << "Введите дату в формате ДДММГГГГ: ";
     scanf("%2d%2d%4d", &day, &month, &year);
     
+    if (isYearVis(year)) {
+        days[1] = 29;
+    }
+
     if (!isValidDate(day, month, year, days)) {
         cout << "Ошибка! Введена некорректная дата." << endl;
         return 1;
     }
     
-    if (isYearVis(year)) {
-        days[1] = 29;
-    }
     
     cout << "Вы ввели: " << day << " " << month << " " << year << endl;
+    cout << "Название введенного месяца: " << getMonth(month, months) << endl; // для 3 лабы (месяц)
     
     if (isYearVis(year)) {
         cout << "Год является високосным" << endl;
@@ -63,6 +67,13 @@ int main() {
         daysToBirthday = (daysInCurrentYear - todayNumber) + birthdayThisYear;
         cout << "День рождения будет в следующем году через " << daysToBirthday << " дней" << endl;
     }
+    
+    int dayNum = 0; // определение дня в году (3 лаба)
+    int result[2];
+    cout << "Введите номер дня в году: "; cin >> dayNum;
+    getDateByNumber(dayNum, days, result);
+    cout << "Дата: " << result[0] << " " << months[result[1] - 1] << endl;
+    
     
     return 0;
 }

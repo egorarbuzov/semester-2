@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/egorarbuzov/Documents/GitHub/semester-2/KPO/lab2/SE_Lab02/SE_Lab02",
+      "program": "/Users/egorarbuzov/Documents/GitHub/semester-2/KPO/lab2/SE_Lab02/SE_Lab02/build/Debug/outDebug"
+    }
+  ]
+}
