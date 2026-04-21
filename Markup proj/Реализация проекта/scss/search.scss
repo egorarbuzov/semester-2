@@ -32,6 +32,13 @@ $text-dark: #1a1e2b;
     gap: 12px;
 }
 
+.logo-image {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
 .logo-icon {
     width: 48px;
     height: 48px;

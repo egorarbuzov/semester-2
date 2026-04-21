@@ -35,6 +35,13 @@ $dropdown-shadow: 0 12px 28px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.02)
     gap: 12px;
 }
 
+.logo-image {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
 .logo-icon {
     width: 48px;
     height: 48px;

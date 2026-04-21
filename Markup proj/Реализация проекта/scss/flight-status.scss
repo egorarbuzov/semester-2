@@ -1,0 +1,518 @@
+// ========== ПЕРЕМЕННЫЕ ==========
+$primary: #8a2c2d;
+$primary-dark: #631f20;
+$text-muted: #4a5568;
+$text-dark: #1a1e2b;
+$border: #e2e8f0;
+$bg-light: #f8fafd;
+$success: #10b981;
+$warning: #f59e0b;
+$danger: #ef4444;
+$info: #3b82f6;
+
+// ========== БАЗОВЫЕ СТИЛИ ==========
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+    color: $text-dark;
+}
+
+// ========== ШАПКА ==========
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid $border;
+    background: white;
+    flex-wrap: wrap;
+}
+
+.logo-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.logo-image {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+    background: $primary;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.logo-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: $text-dark;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 1.5rem;
+    
+    i {
+        font-size: 1.4rem;
+        color: #2c2e3a;
+        cursor: pointer;
+        
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+// ========== ГЕРОЙ ==========
+.page-hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
+                url('https://images.pexels.com/photos/62623/wing-plane-flying-airplane-62623.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    .hero-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        animation: pulse 2s ease-in-out infinite;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    p {
+        font-size: 1.1rem;
+        opacity: 0.95;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+// ========== ОСНОВНОЙ КОНТЕЙНЕР ==========
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+// ========== ЗАГОЛОВКИ СЕКЦИЙ ==========
+.section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    i {
+        color: $primary;
+    }
+}
+
+// ========== ПОИСК РЕЙСА ==========
+.search-flight-section {
+    background: $bg-light;
+    border-radius: 24px;
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.flight-search-form {
+    .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: flex-end;
+    }
+    
+    .form-group {
+        flex: 1;
+        min-width: 200px;
+        
+        label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: $text-muted;
+            
+            i {
+                color: $primary;
+            }
+        }
+        
+        input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid $border;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            
+            &:focus {
+                outline: none;
+                border-color: $primary;
+                box-shadow: 0 0 0 3px rgba($primary, 0.1);
+            }
+        }
+    }
+    
+    .search-flight-btn {
+        background: $primary;
+        color: white;
+        border: none;
+        padding: 0.75rem 2rem;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        
+        &:hover {
+            background: $primary-dark;
+        }
+    }
+}
+
+// ========== СПИСОК РЕЙСОВ ==========
+.flights-section {
+    margin-bottom: 3rem;
+}
+
+.flights-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.flight-card {
+    background: white;
+    border: 1px solid $border;
+    border-radius: 20px;
+    padding: 1.5rem;
+    transition: all 0.2s;
+    
+    &:hover {
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+    }
+    
+    .flight-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid $border;
+        
+        .flight-number {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            
+            i {
+                color: $primary;
+            }
+        }
+        
+        .flight-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            
+            &.status-departed {
+                background: #dbeafe;
+                color: #1e40af;
+            }
+            
+            &.status-arrived {
+                background: #d1fae5;
+                color: #065f46;
+            }
+            
+            &.status-delayed {
+                background: #fed7aa;
+                color: #92400e;
+            }
+            
+            &.status-on-time {
+                background: #e0e7ff;
+                color: #3730a3;
+            }
+            
+            &.status-boarding {
+                background: #fef3c7;
+                color: #92400e;
+            }
+        }
+    }
+    
+    .flight-route {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        
+        .route-point {
+            flex: 1;
+            
+            .city {
+                display: block;
+                font-weight: 600;
+                font-size: 1rem;
+                margin-bottom: 0.25rem;
+            }
+            
+            .time {
+                display: block;
+                font-size: 0.85rem;
+                color: $text-muted;
+            }
+        }
+        
+        .route-arrow {
+            padding: 0 1rem;
+            color: $primary;
+        }
+    }
+    
+    .flight-details {
+        display: flex;
+        gap: 1.5rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid $border;
+        font-size: 0.85rem;
+        color: $text-muted;
+        
+        span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            
+            i {
+                color: $primary;
+            }
+        }
+    }
+}
+
+// ========== ЗАПРОС ОБНОВЛЕНИЯ ==========
+.update-section {
+    margin-top: 2rem;
+}
+
+.update-card {
+    background: linear-gradient(135deg, $primary, $primary-dark);
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    color: white;
+    
+    i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    p {
+        margin-bottom: 1.5rem;
+        opacity: 0.95;
+    }
+    
+    .update-form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        
+        input {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+            }
+        }
+        
+        .update-btn {
+            background: white;
+            color: $primary;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+}
+
+// ========== ПОДВАЛ ==========
+.footer {
+    background: $bg-light;
+    padding: 3rem 2rem 2rem;
+    border-top: 1px solid $border;
+}
+
+.footer-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-icon-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    
+    i {
+        width: 32px;
+        color: $text-muted;
+    }
+    
+    span {
+        color: $text-muted;
+    }
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    
+    i {
+        font-size: 1.4rem;
+        color: $text-muted;
+        cursor: pointer;
+        
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+.social-label {
+    font-size: 0.8rem;
+    color: $text-muted;
+    margin-top: 8px;
+}
+
+hr {
+    margin: 2rem 0 1rem;
+    border-top: 1px solid $border;
+}
+
+// ========== АДАПТАВНОСТЬ ==========
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    
+    .hero-content {
+        h1 {
+            font-size: 1.8rem;
+        }
+    }
+    
+    .container {
+        padding: 2rem 1rem;
+    }
+    
+    .flight-search-form .form-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .flight-route {
+        flex-direction: column;
+        text-align: center;
+        
+        .route-arrow {
+            transform: rotate(90deg);
+            padding: 0.5rem 0;
+        }
+    }
+    
+    .flight-details {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .update-card .update-form {
+        flex-direction: column;
+    }
+    
+    .footer-grid {
+        flex-direction: column;
+    }
+}
