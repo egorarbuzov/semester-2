@@ -9,6 +9,7 @@ $border-card: #f0f2f5;
 $shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.05);
 $shadow-md: 0 12px 30px rgba(0, 0, 0, 0.05);
 $shadow-hover: 0 20px 30px rgba(0, 0, 0, 0.1);
+$dropdown-shadow: 0 12px 28px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.02);
 $transition: all 0.3s ease;
 $transition-fast: all 0.2s ease;
 
@@ -35,30 +36,25 @@ body {
     border-bottom: 1px solid $border-light;
     flex-wrap: wrap;
     position: relative;
-    z-index: 10;
+    z-index: 100;
 
     .logo-area {
         display: flex;
         align-items: center;
         gap: 12px;
 
+        .logo-link {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
         .logo-image {
             width: 58px;
             height: 58px;
             object-fit: contain;
             border-radius: 50%;
-        }
-
-        .logo-icon {
-            width: 48px;
-            height: 48px;
-            background: $primary;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
         }
 
         .logo-text {
@@ -72,8 +68,24 @@ body {
     .nav-icons {
         display: flex;
         gap: 1.5rem;
+        position: relative;
 
-        i {
+        .icon-wrapper {
+            position: relative;
+            cursor: pointer;
+
+            i {
+                font-size: 1.4rem;
+                color: #2c2e3a;
+                transition: $transition-fast;
+
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+
+        > i {
             font-size: 1.4rem;
             color: #2c2e3a;
             cursor: pointer;
@@ -84,6 +96,67 @@ body {
             }
         }
     }
+}
+
+// ========== ВЫПАДАЮЩИЕ МЕНЮ ==========
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    background: white;
+    border-radius: 20px;
+    box-shadow: $dropdown-shadow;
+    min-width: 260px;
+    padding: 0.75rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    z-index: 200;
+    border: 1px solid $border-light;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-header {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8e9aaf;
+    font-weight: 600;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
+    color: #2d3748;
+    transition: background 0.15s;
+    cursor: pointer;
+    text-decoration: none;
+
+    i {
+        width: 22px;
+        font-size: 1.1rem;
+        color: $primary;
+    }
+
+    &:hover {
+        background: #f9fafb;
+    }
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: $border-light;
+    margin: 0.5rem 0;
 }
 
 // ========== ГЕРОЙ С ЗАГОЛОВКОМ НА КАРТИНКЕ ==========
@@ -172,10 +245,10 @@ body {
                 gap: 8px;
                 margin-bottom: 0.75rem;
                 font-size: 0.85rem;
-                color: $primary;
 
                 i {
                     font-size: 0.9rem;
+                    color: $primary;
                 }
 
                 span {
@@ -195,24 +268,6 @@ body {
                 color: $text-muted;
                 line-height: 1.5;
                 margin-bottom: 1rem;
-            }
-
-            .news-footer {
-                display: flex;
-                gap: 1rem;
-                padding-top: 1rem;
-                border-top: 1px solid $border-light;
-
-                i {
-                    font-size: 1.2rem;
-                    color: $primary;
-                    cursor: pointer;
-                    transition: $transition-fast;
-
-                    &:hover {
-                        transform: scale(1.1);
-                    }
-                }
             }
         }
     }
@@ -234,7 +289,8 @@ body {
             align-items: center;
             gap: 12px;
             transition: $transition-fast;
-            font-size: 1.2rem;
+            font-size: 1rem;
+            font-weight: 600;
 
             i {
                 font-size: 1.2rem;
@@ -243,6 +299,7 @@ body {
             &:hover {
                 background: $primary-dark;
                 transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba($primary, 0.3);
             }
         }
     }
@@ -319,10 +376,13 @@ body {
     }
 }
 
-// ========== АДАПТИВНОСТЬ ==========
+// ========== АДАПТАВНОСТЬ ==========
 @media (max-width: 900px) {
     .top-bar {
         padding: 0.8rem 1.5rem;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
     }
 
     .hero {
@@ -354,6 +414,10 @@ body {
             gap: 1.5rem;
         }
     }
+
+    .dropdown-menu {
+        right: -20px;
+    }
 }
 
 @media (max-width: 550px) {
@@ -377,5 +441,10 @@ body {
                 }
             }
         }
+    }
+
+    .dropdown-menu {
+        min-width: 240px;
+        right: -10px;
     }
 }

@@ -245,7 +245,8 @@ body {
 }
 .help-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 30px rgba(138, 44, 45, 0.15);
+  border: 1px solid #8a2c2d;
 }
 
 .card-icon {
