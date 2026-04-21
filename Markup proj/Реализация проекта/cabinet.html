@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Just Air - Личный кабинет</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="logo-area">
+            <a href="main.html" class="logo-link">
+                <div class="logo-icon">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <span class="logo-text">Just Air</span>
+            </a>
+        </div>
+        <div class="nav-icons">
+            <i class="fas fa-search"></i>
+            <i class="far fa-user-circle"></i>
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-globe"></i>
+        </div>
+    </div>
+
+    <div class="cabinet-container">
+        <div class="cabinet-sidebar">
+            <div class="user-avatar">
+                <i class="fas fa-user-circle"></i>
+                <h3 id="userNameDisplay">Пользователь</h3>
+                <p id="userEmailDisplay">user@example.com</p>
+            </div>
+            <nav class="cabinet-nav">
+                <a href="#" class="nav-link active" data-tab="profile">
+                    <i class="fas fa-id-card"></i> Личные данные
+                </a>
+                <a href="#" class="nav-link" data-tab="bookings">
+                    <i class="fas fa-ticket-alt"></i> Мои бронирования
+                </a>
+                <a href="#" class="nav-link" data-tab="bonuses">
+                    <i class="fas fa-gem"></i> Бонусная программа
+                </a>
+                <a href="#" class="nav-link" data-tab="settings">
+                    <i class="fas fa-cog"></i> Настройки
+                </a>
+            </nav>
+            <a href="main.html" class="logout-btn" id="cabinetLogoutBtn">
+                <i class="fas fa-sign-out-alt"></i> Выйти
+            </a>
+        </div>
+        
+        <div class="cabinet-content">
+            <!-- Вкладка Профиль -->
+            <div class="tab-content active" id="profile-tab">
+                <h2><i class="fas fa-id-card"></i> Личные данные</h2>
+                <div class="profile-info">
+                    <div class="info-row">
+                        <span class="info-label">Имя:</span>
+                        <span class="info-value" id="profileFirstName">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Фамилия:</span>
+                        <span class="info-value" id="profileLastName">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Email:</span>
+                        <span class="info-value" id="profileEmail">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Телефон:</span>
+                        <span class="info-value" id="profilePhone">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Дата регистрации:</span>
+                        <span class="info-value" id="profileRegDate">-</span>
+                    </div>
+                </div>
+                <button class="edit-btn" id="editProfileBtn">
+                    <i class="fas fa-edit"></i> Редактировать профиль
+                </button>
+            </div>
+            
+            <!-- Вкладка Бронирования -->
+            <div class="tab-content" id="bookings-tab">
+                <h2><i class="fas fa-ticket-alt"></i> Мои бронирования</h2>
+                <div id="bookingsList" class="bookings-list">
+                    <div class="empty-state">
+                        <i class="fas fa-plane-slash"></i>
+                        <p>У вас пока нет бронирований</p>
+                        <a href="main.html" class="search-flights-btn">Найти билеты</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Вкладка Бонусы -->
+            <div class="tab-content" id="bonuses-tab">
+                <h2><i class="fas fa-gem"></i> Бонусная программа</h2>
+                <div class="bonus-card">
+                    <div class="bonus-stats">
+                        <div class="bonus-item">
+                            <span class="bonus-label">Бонусные мили</span>
+                            <span class="bonus-value" id="bonusMiles">0</span>
+                        </div>
+                        <div class="bonus-item">
+                            <span class="bonus-label">Уровень</span>
+                            <span class="bonus-value" id="bonusLevel">Стандарт</span>
+                        </div>
+                    </div>
+                    <div class="bonus-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <p id="bonusNextLevel">До следующего уровня: 1000 миль</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Вкладка Настройки -->
+            <div class="tab-content" id="settings-tab">
+                <h2><i class="fas fa-cog"></i> Настройки</h2>
+                <form id="settingsForm">
+                    <div class="form-group">
+                        <label for="notificationsEmail">
+                            <i class="fas fa-envelope"></i> Email уведомления
+                        </label>
+                        <select id="notificationsEmail" class="settings-select">
+                            <option value="all">Все уведомления</option>
+                            <option value="important">Только важные</option>
+                            <option value="none">Не получать</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="language">
+                            <i class="fas fa-globe"></i> Язык интерфейса
+                        </label>
+                        <select id="language" class="settings-select">
+                            <option value="ru">Русский</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="currency">
+                            <i class="fas fa-money-bill-wave"></i> Валюта
+                        </label>
+                        <select id="currency" class="settings-select">
+                            <option value="rub">RUB (₽)</option>
+                            <option value="usd">USD ($)</option>
+                            <option value="eur">EUR (€)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="save-settings-btn">
+                        <i class="fas fa-save"></i> Сохранить настройки
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-icon-row"><i class="fas fa-phone-alt"></i><span>+7 (495) 123-45-67</span></div>
+                <div class="footer-icon-row"><i class="far fa-envelope"></i><span>support@justair.aero</span></div>
+            </div>
+            <div class="footer-col">
+                <div class="footer-icon-row"><i class="fas fa-map-pin"></i><span>Москва, ул. Авиационная, 12</span></div>
+                <div class="footer-icon-row"><i class="fas fa-clock"></i><span>Ежедневно 09:00 - 21:00</span></div>
+            </div>
+            <div class="footer-col">
+                <div class="social-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin-in"></i>
+                </div>
+                <div class="social-label">соц. сети</div>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-icon-row" style="justify-content: center;">
+            <i class="fas fa-plane"></i>
+            <i class="fas fa-globe-asia"></i>
+        </div>
+    </footer>
+
+    <script src="js/cabinet.js"></script>
+</body>
+</html>

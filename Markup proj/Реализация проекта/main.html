@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Just Air - Найти билеты</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="logo-area">
+                <div class="logo-icon">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <span class="logo-text">Just Air</span>
+        </div>
+        <div class="nav-icons">
+            <!-- Лупа - поиск -->
+            <div class="icon-wrapper" data-dropdown="searchDropdown">
+                <i class="fas fa-search"></i>
+                <div class="dropdown-menu" id="searchDropdown">
+                    <div class="dropdown-header">Быстрый поиск</div>
+                    <a href="#" class="dropdown-item" data-action="search-flights">
+                        <i class="fas fa-ticket-alt"></i> <span>Поиск авиабилетов</span>
+                    </a>
+                    <a href="#" class="dropdown-item" data-action="search-hotels">
+                        <i class="fas fa-hotel"></i> <span>Поиск жилья</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                </div>
+            </div>
+
+            <!-- Иконка пользователя / авторизация -->
+            <div class="icon-wrapper" data-dropdown="userDropdown" id="userMenuWrapper">
+                <i class="far fa-user-circle" id="userIcon"></i>
+                <div class="dropdown-menu" id="userDropdown">
+                    <div id="unauthMenu">
+                        <div class="dropdown-header">Аккаунт</div>
+                        <a href="login.html" class="dropdown-item">
+                            <i class="fas fa-sign-in-alt"></i> <span>Войти</span>
+                        </a>
+                        <a href="register.html" class="dropdown-item">
+                            <i class="fas fa-user-plus"></i> <span>Регистрация</span>
+                        </a>
+                    </div>
+                    <div id="authMenu" style="display: none;">
+                        <div class="dropdown-header" id="welcomeUser">Добро пожаловать</div>
+                        <a href="cabinet.html" class="dropdown-item">
+                            <i class="fas fa-id-card"></i> <span>Личный кабинет</span>
+                        </a>
+                        <a href="#" class="dropdown-item" id="myBookingsLink">
+                            <i class="fas fa-ticket-alt"></i> <span>Мои бронирования</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> <span>Выйти</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Бургер меню -->
+            <div class="icon-wrapper" data-dropdown="burgerDropdown">
+                <i class="fas fa-bars"></i>
+                <div class="dropdown-menu" id="burgerDropdown">
+                    <div class="dropdown-header">О проекте</div>
+                    <a href="#" class="dropdown-item" data-action="about">
+                        <i class="fas fa-info-circle"></i> <span>О компании Just Air</span>
+                    </a>
+                    <a href="#" class="dropdown-item" data-action="help">
+                        <i class="fas fa-life-ring"></i> <span>Центр поддержки</span>
+                    </a>
+                    <a href="news.html" class="dropdown-item">
+                        <i class="fas fa-newspaper"></i> <span>Новости и акции</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item" data-action="contacts">
+                        <i class="fas fa-phone-alt"></i> <span>Контакты</span>
+                    </a>
+                    <a href="#" class="dropdown-item" data-action="language">
+                        <i class="fas fa-globe"></i> <span>Русский / ENG</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Глобус -->
+            <i class="fas fa-globe" id="globeIcon"></i>
+        </div>
+    </div>
+
+    <!-- ГЛАВНЫЙ БАННЕР С ПОИСКОМ БИЛЕТОВ -->
+    <div class="hero">
+        <div class="hero-overlay">
+            <h1 class="hero-title">Найти билеты</h1>
+            <div class="search-widget">
+                <form id="searchForm" action="search.html" method="GET" class="search-row">
+                    <div class="search-field">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" name="from" placeholder="пункт вылета" required>
+                    </div>
+                    <div class="search-field">
+                        <i class="fas fa-location-dot"></i>
+                        <input type="text" name="to" placeholder="пункт назначения" required>
+                    </div>
+                    <div class="search-field">
+                        <i class="far fa-calendar-alt"></i>
+                        <input type="date" name="date" placeholder="дата вылета">
+                    </div>
+                    <div class="search-field">
+                        <i class="fas fa-user-friends"></i>
+                        <input type="number" name="passengers" placeholder="пассажиры" min="1" value="1">
+                    </div>
+                    <button type="submit" class="search-btn"><i class="fas fa-arrow-right"></i> Найти</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="cards-section">
+        <div class="card-grid">
+            <a href="news.html" class="help-card-link">
+                <div class="help-card">
+                    <div class="card-icon"><i class="fas fa-newspaper"></i></div>
+                    <h3 class="card-title">Новости</h3>
+                    <p class="card-desc">Актуальная информация и свежие сообщения</p>
+                    <div class="card-link-icon"><i class="fas fa-arrow-right"></i></div>
+                </div>
+            </a>
+            <div class="help-card" data-card="status">
+                <div class="card-icon"><i class="fas fa-radar"></i></div>
+                <h3 class="card-title">Статус рейсов</h3>
+                <p class="card-desc">Отслеживание актуальных рейсов.</p>
+                <p class="card-desc">Будьте в курсе всех обновлений.</p>
+            </div>
+            <div class="help-card" data-card="support">
+                <div class="card-icon"><i class="fas fa-headset"></i></div>
+                <h3 class="card-title">Тех.поддержка</h3>
+                <p class="card-desc">Ответы на ваши вопросы в режиме онлайн</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="partners-row">
+        <div class="partner-grid">
+            <div class="partner-item" data-partner="achievements">
+                <i class="fas fa-trophy"></i><span>Наши достижения</span>
+            </div>
+            <div class="partner-item" data-partner="services">
+                <i class="fas fa-concierge-bell"></i><span>Доп.услуги</span>
+            </div>
+            <div class="partner-item" data-partner="partnership">
+                <i class="fas fa-handshake"></i><span>Сотрудничество</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="holiday-section">
+        <div class="holiday-banner">
+            <div class="holiday-image"></div>
+            <div class="holiday-content">
+                <div class="deco-icon"><i class="fas fa-suitcase-rolling"></i><i class="fas fa-plus"></i><i class="fas fa-hotel"></i></div>
+                <h3 class="holiday-title">Услуги по бронированию жилья</h3>
+                <p class="holiday-text">Пакетные предложения авиабилет + проживание в отеле по выгодным ценам</p>
+                <button class="ghost-button" data-holiday="more"><i class="fas fa-chevron-circle-right"></i> Подробнее</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-icon-row"><i class="fas fa-phone-alt"></i><span>+7 (495) 123-45-67</span></div>
+                <div class="footer-icon-row"><i class="far fa-envelope"></i><span>support@justair.aero</span></div>
+            </div>
+            <div class="footer-col">
+                <div class="footer-icon-row"><i class="fas fa-map-pin"></i><span>Москва, ул. Авиационная, 12</span></div>
+                <div class="footer-icon-row"><i class="fas fa-clock"></i><span>Ежедневно 09:00 - 21:00</span></div>
+            </div>
+            <div class="footer-col">
+                <div class="social-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin-in"></i>
+                </div>
+                <div class="social-label">соц. сети</div>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-icon-row" style="justify-content: center;">
+            <i class="fas fa-plane"></i>
+            <i class="fas fa-globe-asia"></i>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

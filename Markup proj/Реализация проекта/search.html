@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Just airlines — Результаты поиска</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="logo-area">
+            <div class="logo-icon"><i class="fas fa-plane"></i></div>
+            <span class="logo-text">Just airlines</span>
+        </div>
+        <div class="nav-icons">
+            <i class="fas fa-search"></i>
+            <i class="far fa-user-circle"></i>
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-globe"></i>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="hero-overlay">
+            <h1 class="hero-title">Результат поиска</h1>
+        </div>
+    </div>
+
+    <div class="results-section">
+        <div class="container">
+            <div class="search-info" id="searchInfo"></div>
+
+            <div class="flights-list" id="flightsList"></div>
+
+            <div class="pagination" id="pagination">
+                <button class="page-btn" id="prevPage"><i class="fas fa-chevron-left"></i></button>
+                <span class="page-numbers" id="pageNumbers"></span>
+                <button class="page-btn" id="nextPage"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-icon-row"><i class="fas fa-phone-alt"></i><span>пример номера</span></div>
+                <div class="footer-icon-row"><i class="far fa-envelope"></i><span>пример почты</span></div>
+            </div>
+            <div class="footer-col">
+                <div class="footer-icon-row"><i class="fas fa-map-pin"></i><span>пример адреса</span></div>
+                <div class="footer-icon-row"><i class="fas fa-clock"></i><span>пример времени работы</span></div>
+            </div>
+            <div class="footer-col">
+                <div class="social-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin-in"></i>
+                </div>
+                <div class="social-label">соц. сети</div>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-icon-row" style="justify-content: center;">
+            <i class="fas fa-plane"></i>
+            <i class="fas fa-globe-asia"></i>
+        </div>
+    </footer>
+
+    <script src="js/search.js"></script>
+</body>
+</html>
