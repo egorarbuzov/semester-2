@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Just Air - Статус рейсов</title>
+    <title>Just Air - Дополнительные услуги</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/flight-status.css">
+    <link rel="stylesheet" href="css/services.css">
 </head>
 <body>
 
@@ -90,132 +90,95 @@
         </div>
     </div>
 
-    <div class="page-hero">
-        <div class="hero-content">
-            <i class="fas fa-radar hero-icon"></i>
-            <h1>Статус рейсов</h1>
-            <p>Актуальная информация о вылетах и прилетах</p>
-        </div>
+    <div class="hero">
+        <h1>Дополнительные услуги</h1>
+        <p>Сделайте ваше путешествие еще комфортнее</p>
     </div>
 
     <div class="container">
-        <!-- Список актуальных рейсов -->
-        <div class="flights-section">
-            <h2 class="section-title">
-                <i class="fas fa-list"></i>
-                Актуальные рейсы
-            </h2>
-            <div class="flights-list">
-                <div class="flight-card">
-                    <div class="flight-header">
-                        <div class="flight-number">
-                            <i class="fas fa-plane-departure"></i>
-                            <span>JTA 1234</span>
-                        </div>
-                        <div class="flight-status status-departed">
-                            <i class="fas fa-check-circle"></i>
-                            Вылетел
-                        </div>
-                    </div>
-                    <div class="flight-route">
-                        <div class="route-point">
-                            <span class="city">Минск (MSQ)</span>
-                            <span class="time">→</span>
-                            <span class="city">Брест (BQT)</span>
-                        </div>
-                        <div class="flight-time">
-                            <i class="far fa-clock"></i>
-                            <span>08:00</span>
-                        </div>
-                    </div>
+        <!-- ПРЕМИУМ-УСЛУГИ -->
+        <h2 class="section-title">
+            <i class="fas fa-star"></i>
+            Премиум-услуги
+        </h2>
+        <div class="premium-grid">
+            <div class="premium-card">
+                <div class="premium-icon">
+                    <i class="fas fa-chair"></i>
                 </div>
+                <h3>Выбор места</h3>
+                <p>Выберите удобное место в салоне самолета. Места у окна, прохода или с дополнительным пространством для ног.</p>
+                <div class="premium-price">от 8 BYN</div>
+            </div>
 
-                <div class="flight-card">
-                    <div class="flight-header">
-                        <div class="flight-number">
-                            <i class="fas fa-plane-arrival"></i>
-                            <span>JTA 5678</span>
-                        </div>
-                        <div class="flight-status status-arrived">
-                            <i class="fas fa-check-double"></i>
-                            Прибыл
-                        </div>
-                    </div>
-                    <div class="flight-route">
-                        <div class="route-point">
-                            <span class="city">Гродно (GNA)</span>
-                            <span class="time">→</span>
-                            <span class="city">Минск (MSQ)</span>
-                        </div>
-                        <div class="flight-time">
-                            <i class="far fa-clock"></i>
-                            <span>10:15</span>
-                        </div>
-                    </div>
+            <div class="premium-card">
+                <div class="premium-icon">
+                    <i class="fas fa-clock"></i>
                 </div>
+                <h3>Приоритетная посадка</h3>
+                <p>Посадка на борт вне очереди. Избегайте очередей и спешки, займите свое место первыми.</p>
+                <div class="premium-price">12 BYN</div>
+            </div>
 
-                <div class="flight-card">
-                    <div class="flight-header">
-                        <div class="flight-number">
-                            <i class="fas fa-plane-departure"></i>
-                            <span>JTA 9012</span>
-                        </div>
-                        <div class="flight-status status-delayed">
-                            <i class="fas fa-clock"></i>
-                            Задерживается
-                        </div>
-                    </div>
-                    <div class="flight-route">
-                        <div class="route-point">
-                            <span class="city">Минск (MSQ)</span>
-                            <span class="time">→</span>
-                            <span class="city">Гомель (GME)</span>
-                        </div>
-                        <div class="flight-time">
-                            <i class="far fa-clock"></i>
-                            <span>14:30 → 15:45</span>
-                        </div>
-                    </div>
+            <div class="premium-card">
+                <div class="premium-icon">
+                    <i class="fas fa-plane"></i>
                 </div>
+                <h3>Бизнес-зал ожидания</h3>
+                <p>Доступ в комфортабельный бизнес-зал с напитками, закусками, Wi-Fi и зоной отдыха.</p>
+                <div class="premium-price">35 BYN</div>
+            </div>
 
-                <div class="flight-card">
-                    <div class="flight-header">
-                        <div class="flight-number">
-                            <i class="fas fa-plane-departure"></i>
-                            <span>JTA 3456</span>
-                        </div>
-                        <div class="flight-status status-on-time">
-                            <i class="fas fa-check"></i>
-                            По расписанию
-                        </div>
-                    </div>
-                    <div class="flight-route">
-                        <div class="route-point">
-                            <span class="city">Минск (MSQ)</span>
-                            <span class="time">→</span>
-                            <span class="city">Москва (DME)</span>
-                        </div>
-                        <div class="flight-time">
-                            <i class="far fa-clock"></i>
-                            <span>16:00</span>
-                        </div>
-                    </div>
+            <div class="premium-card">
+                <div class="premium-icon">
+                    <i class="fas fa-taxi"></i>
                 </div>
+                <h3>Трансфер до/из аэропорта</h3>
+                <p>Комфортабельный трансфер на автомобиле бизнес-класса. Встреча с табличкой и помощь с багажом.</p>
+                <div class="premium-price">от 40 BYN</div>
+            </div>
+
+            <div class="premium-card">
+                <div class="premium-icon">
+                    <i class="fas fa-paw"></i>
+                </div>
+                <h3>Перевозка животных</h3>
+                <p>Безопасная перевозка ваших питомцев в специально оборудованном отсеке или в салоне.</p>
+                <div class="premium-price">от 30 BYN</div>
+            </div>
+
+            <div class="premium-card">
+                <div class="premium-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3>Медицинское сопровождение</h3>
+                <p>Профессиональное медицинское сопровождение на время полета. Индивидуальный подход к каждому пациенту.</p>
+                <div class="premium-price">по запросу</div>
             </div>
         </div>
 
-        <!-- Запросить обновление статуса (уменьшенный) -->
-        <div class="update-section">
-            <div class="update-card">
-                <i class="fas fa-bell"></i>
-                <h3>Обновление статуса</h3>
-                <p>Узнавайте об изменениях вашего рейса</p>
-                <form class="update-form" id="updateForm">
-                    <input type="text" placeholder="Номер рейса" id="updateFlightNumber">
-                    <button type="submit" class="update-btn">
-                        <i class="fas fa-bell"></i> Подписаться
-                    </button>
-                </form>
+        <!-- УСЛУГИ НА БОРТУ -->
+        <h2 class="section-title">
+            <i class="fas fa-concierge-bell"></i>
+            Услуги на борту
+        </h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-utensils"></i>
+                <h4>Питание на борту</h4>
+                <div class="price">от 15 BYN</div>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-wifi"></i>
+                <h4>Wi-Fi на борту</h4>
+                <div class="price">от 10 BYN</div>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-suitcase"></i>
+                <h4>Дополнительный багаж</h4>
+                <div class="price">от 25 BYN</div>
             </div>
         </div>
     </div>
@@ -225,7 +188,7 @@
             <div class="footer-col">
                 <div class="footer-icon-row">
                     <i class="fas fa-phone-alt"></i>
-                    <span>+375 29 123-45-67</span>
+                    <span>+375 29 123 45 67</span>
                 </div>
                 <div class="footer-icon-row">
                     <i class="far fa-envelope"></i>
@@ -256,7 +219,7 @@
         <div class="footer-icon-row" style="justify-content: center;">
             <i class="fas fa-plane"></i>
             <i class="fas fa-globe-asia"></i>
-            <i class="fas fa-radar"></i>
+            <i class="fas fa-concierge-bell"></i>
         </div>
     </footer>
 

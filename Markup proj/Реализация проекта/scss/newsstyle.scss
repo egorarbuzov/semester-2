@@ -104,7 +104,7 @@ body {
     top: calc(100% + 12px);
     right: 0;
     background: white;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: $dropdown-shadow;
     min-width: 260px;
     padding: 0.75rem 0;
@@ -162,7 +162,7 @@ body {
 // ========== ГЕРОЙ С ЗАГОЛОВКОМ НА КАРТИНКЕ ==========
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), 
-                url('https://images.pexels.com/photos/2101829/pexels-photo-2101829.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+                url('../images/news_logo.jpg') center/cover no-repeat;
     min-height: 400px;
     display: flex;
     align-items: center;
@@ -217,10 +217,7 @@ body {
         &:hover {
             transform: translateY(-6px);
             box-shadow: $shadow-hover;
-
-            .news-image img {
-                transform: scale(1.05);
-            }
+            border: 1px solid $primary;
         }
 
         .news-image {

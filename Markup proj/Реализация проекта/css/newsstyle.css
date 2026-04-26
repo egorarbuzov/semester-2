@@ -77,7 +77,7 @@ body {
   top: calc(100% + 12px);
   right: 0;
   background: white;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.02);
   min-width: 260px;
   padding: 0.75rem 0;
@@ -130,7 +130,7 @@ body {
 }
 
 .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url("https://images.pexels.com/photos/2101829/pexels-photo-2101829.jpeg?auto=compress&cs=tinysrgb&w=1600") center/cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url("../images/news_logo.jpg") center/cover no-repeat;
   min-height: 400px;
   display: flex;
   align-items: center;
@@ -179,9 +179,7 @@ body {
 .news-section .news-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
-}
-.news-section .news-card:hover .news-image img {
-  transform: scale(1.05);
+  border: 1px solid #8a2c2d;
 }
 .news-section .news-card .news-image {
   width: 100%;

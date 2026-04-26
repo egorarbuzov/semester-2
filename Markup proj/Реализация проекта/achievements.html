@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Just Air - Статус рейсов</title>
+    <title>Just Air - Наши достижения</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/flight-status.css">
+    <link rel="stylesheet" href="css/achievements.css">
 </head>
 <body>
 
@@ -18,6 +18,7 @@
             </a>
         </div>
         <div class="nav-icons">
+            <!-- Поиск -->
             <div class="icon-wrapper" data-dropdown="searchDropdown">
                 <i class="fas fa-search"></i>
                 <div class="dropdown-menu" id="searchDropdown">
@@ -35,6 +36,7 @@
                 </div>
             </div>
 
+            <!-- Пользователь / Авторизация -->
             <div class="icon-wrapper" data-dropdown="userDropdown" id="userMenuWrapper">
                 <i class="far fa-user-circle"></i>
                 <div class="dropdown-menu" id="userDropdown">
@@ -63,6 +65,7 @@
                 </div>
             </div>
 
+            <!-- Бургер-меню -->
             <div class="icon-wrapper" data-dropdown="burgerDropdown">
                 <i class="fas fa-bars"></i>
                 <div class="dropdown-menu" id="burgerDropdown">
@@ -86,136 +89,93 @@
                 </div>
             </div>
 
+            <!-- Глобус -->
             <i class="fas fa-globe" id="globeIcon"></i>
         </div>
     </div>
 
-    <div class="page-hero">
-        <div class="hero-content">
-            <i class="fas fa-radar hero-icon"></i>
-            <h1>Статус рейсов</h1>
-            <p>Актуальная информация о вылетах и прилетах</p>
-        </div>
+    <div class="hero">
+        <h1>Наши достижения</h1>
+        <p>5 лет лидерства в авиаперевозках Беларуси</p>
     </div>
 
     <div class="container">
-        <!-- Список актуальных рейсов -->
-        <div class="flights-section">
-            <h2 class="section-title">
-                <i class="fas fa-list"></i>
-                Актуальные рейсы
-            </h2>
-            <div class="flights-list">
-                <div class="flight-card">
-                    <div class="flight-header">
-                        <div class="flight-number">
-                            <i class="fas fa-plane-departure"></i>
-                            <span>JTA 1234</span>
-                        </div>
-                        <div class="flight-status status-departed">
-                            <i class="fas fa-check-circle"></i>
-                            Вылетел
-                        </div>
-                    </div>
-                    <div class="flight-route">
-                        <div class="route-point">
-                            <span class="city">Минск (MSQ)</span>
-                            <span class="time">→</span>
-                            <span class="city">Брест (BQT)</span>
-                        </div>
-                        <div class="flight-time">
-                            <i class="far fa-clock"></i>
-                            <span>08:00</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flight-card">
-                    <div class="flight-header">
-                        <div class="flight-number">
-                            <i class="fas fa-plane-arrival"></i>
-                            <span>JTA 5678</span>
-                        </div>
-                        <div class="flight-status status-arrived">
-                            <i class="fas fa-check-double"></i>
-                            Прибыл
-                        </div>
-                    </div>
-                    <div class="flight-route">
-                        <div class="route-point">
-                            <span class="city">Гродно (GNA)</span>
-                            <span class="time">→</span>
-                            <span class="city">Минск (MSQ)</span>
-                        </div>
-                        <div class="flight-time">
-                            <i class="far fa-clock"></i>
-                            <span>10:15</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flight-card">
-                    <div class="flight-header">
-                        <div class="flight-number">
-                            <i class="fas fa-plane-departure"></i>
-                            <span>JTA 9012</span>
-                        </div>
-                        <div class="flight-status status-delayed">
-                            <i class="fas fa-clock"></i>
-                            Задерживается
-                        </div>
-                    </div>
-                    <div class="flight-route">
-                        <div class="route-point">
-                            <span class="city">Минск (MSQ)</span>
-                            <span class="time">→</span>
-                            <span class="city">Гомель (GME)</span>
-                        </div>
-                        <div class="flight-time">
-                            <i class="far fa-clock"></i>
-                            <span>14:30 → 15:45</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flight-card">
-                    <div class="flight-header">
-                        <div class="flight-number">
-                            <i class="fas fa-plane-departure"></i>
-                            <span>JTA 3456</span>
-                        </div>
-                        <div class="flight-status status-on-time">
-                            <i class="fas fa-check"></i>
-                            По расписанию
-                        </div>
-                    </div>
-                    <div class="flight-route">
-                        <div class="route-point">
-                            <span class="city">Минск (MSQ)</span>
-                            <span class="time">→</span>
-                            <span class="city">Москва (DME)</span>
-                        </div>
-                        <div class="flight-time">
-                            <i class="far fa-clock"></i>
-                            <span>16:00</span>
-                        </div>
-                    </div>
-                </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">лет на рынке</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">500K+</div>
+                <div class="stat-label">довольных пассажиров</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">12+</div>
+                <div class="stat-label">направлений</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">96%</div>
+                <div class="stat-label">пунктуальность</div>
             </div>
         </div>
 
-        <!-- Запросить обновление статуса (уменьшенный) -->
-        <div class="update-section">
-            <div class="update-card">
-                <i class="fas fa-bell"></i>
-                <h3>Обновление статуса</h3>
-                <p>Узнавайте об изменениях вашего рейса</p>
-                <form class="update-form" id="updateForm">
-                    <input type="text" placeholder="Номер рейса" id="updateFlightNumber">
-                    <button type="submit" class="update-btn">
-                        <i class="fas fa-bell"></i> Подписаться
-                    </button>
-                </form>
+        <h2 class="section-title">
+            <i class="fas fa-trophy"></i>
+            Награды и признание
+        </h2>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <span class="achievement-year">2024</span>
+                <h3>Лучшая авиакомпания Беларуси</h3>
+                <p>Премия "Национальный авиационный рейтинг" за высокий уровень сервиса и безопасности полетов.</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <span class="achievement-year">2023</span>
+                <h3>Выбор пассажиров Беларуси</h3>
+                <p>Признана лучшей авиакомпанией по версии пассажиров в ежегодном голосовании.</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <span class="achievement-year">2023</span>
+                <h3>Лучшая пунктуальность</h3>
+                <p>Награда за наивысший показатель своевременности вылетов среди авиакомпаний Беларуси — 96%.</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <span class="achievement-year">2022</span>
+                <h3>Лучший работодатель в отрасли</h3>
+                <p>Признана лучшим работодателем в сфере авиаперевозок Беларуси по версии ProfiJobs.</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <span class="achievement-year">2022</span>
+                <h3>Надежный партнер года</h3>
+                <p>Награда от Белорусской ассоциации туристических агентств за качественное сотрудничество.</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <span class="achievement-year">2021</span>
+                <h3>Безопасность превыше всего</h3>
+                <p>Сертификат за безупречную безопасность полетов от Департамента по авиации Беларуси.</p>
             </div>
         </div>
     </div>
@@ -225,7 +185,7 @@
             <div class="footer-col">
                 <div class="footer-icon-row">
                     <i class="fas fa-phone-alt"></i>
-                    <span>+375 29 123-45-67</span>
+                    <span>+375 29 123 45 67</span>
                 </div>
                 <div class="footer-icon-row">
                     <i class="far fa-envelope"></i>
@@ -256,7 +216,7 @@
         <div class="footer-icon-row" style="justify-content: center;">
             <i class="fas fa-plane"></i>
             <i class="fas fa-globe-asia"></i>
-            <i class="fas fa-radar"></i>
+            <i class="fas fa-trophy"></i>
         </div>
     </footer>
 

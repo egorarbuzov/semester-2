@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Just airlines — Результаты поиска</title>
+    <title>Just Air — Результаты поиска</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/search.css">
@@ -12,33 +12,374 @@
 
     <div class="top-bar">
         <div class="logo-area">
-            <img src="images/main-logo.png" class="logo-image">
-            <span class="logo-text">Just airlines</span>
+            <a href="main.html" class="logo-link">
+                <img src="images/main-logo.png" class="logo-image" alt="Just Air">
+                <span class="logo-text">Just Air</span>
+            </a>
         </div>
         <div class="nav-icons">
-            <i class="fas fa-search"></i>
-            <i class="far fa-user-circle"></i>
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-globe"></i>
+            <div class="icon-wrapper" data-dropdown="searchDropdown">
+                <i class="fas fa-search"></i>
+                <div class="dropdown-menu" id="searchDropdown">
+                    <div class="dropdown-header">Быстрый поиск</div>
+                    <a href="search.html" class="dropdown-item">
+                        <i class="fas fa-ticket-alt"></i> <span>Поиск авиабилетов</span>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-hotel"></i> <span>Поиск жилья</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="flight-status.html" class="dropdown-item">
+                        <i class="fas fa-radar"></i> <span>Статус рейса</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="icon-wrapper" data-dropdown="userDropdown" id="userMenuWrapper">
+                <i class="far fa-user-circle"></i>
+                <div class="dropdown-menu" id="userDropdown">
+                    <div id="unauthMenu">
+                        <div class="dropdown-header">Аккаунт</div>
+                        <a href="login.html" class="dropdown-item">
+                            <i class="fas fa-sign-in-alt"></i> <span>Войти</span>
+                        </a>
+                        <a href="register.html" class="dropdown-item">
+                            <i class="fas fa-user-plus"></i> <span>Регистрация</span>
+                        </a>
+                    </div>
+                    <div id="authMenu" style="display: none;">
+                        <div class="dropdown-header" id="welcomeUser">Добро пожаловать</div>
+                        <a href="cabinet.html" class="dropdown-item">
+                            <i class="fas fa-id-card"></i> <span>Личный кабинет</span>
+                        </a>
+                        <a href="#" class="dropdown-item" id="myBookingsLink">
+                            <i class="fas fa-ticket-alt"></i> <span>Мои бронирования</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> <span>Выйти</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="icon-wrapper" data-dropdown="burgerDropdown">
+                <i class="fas fa-bars"></i>
+                <div class="dropdown-menu" id="burgerDropdown">
+                    <div class="dropdown-header">О проекте</div>
+                    <a href="achievements.html" class="dropdown-item">
+                        <i class="fas fa-info-circle"></i> <span>О компании Just Air</span>
+                    </a>
+                    <a href="support.html" class="dropdown-item">
+                        <i class="fas fa-life-ring"></i> <span>Центр поддержки</span>
+                    </a>
+                    <a href="news.html" class="dropdown-item">
+                        <i class="fas fa-newspaper"></i> <span>Новости и акции</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-phone-alt"></i> <span>Контакты</span>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-globe"></i> <span>Русский / ENG</span>
+                    </a>
+                </div>
+            </div>
+
+            <i class="fas fa-globe" id="globeIcon"></i>
         </div>
     </div>
 
     <div class="hero">
         <div class="hero-overlay">
-            <h1 class="hero-title">Результат поиска</h1>
+            <h1 class="hero-title">Минск → Брест</h1>
+            <p class="hero-subtitle">Результаты поиска</p>
         </div>
     </div>
 
     <div class="results-section">
         <div class="container">
-            <div class="search-info" id="searchInfo"></div>
+            <div class="search-info">
+                <div class="search-params">
+                    <div class="search-param">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Минск</span>
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Брест</span>
+                    </div>
+                    <div class="search-param">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>26 апреля 2026</span>
+                    </div>
+                    <div class="search-param">
+                        <i class="fas fa-user-friends"></i>
+                        <span>1 пассажир</span>
+                    </div>
+                </div>
+                <div class="results-count">
+                    <i class="fas fa-plane"></i> Найдено <span>7</span> рейсов
+                </div>
+            </div>
 
-            <div class="flights-list" id="flightsList"></div>
+            <div class="flights-list">
+                <!-- Рейс 1 -->
+                <div class="flight-card">
+                    <div class="flight-info">
+                        <div class="airline-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="route-info">
+                            <div class="route">
+                                <div class="from-to">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span class="city">Минск</span>
+                                </div>
+                                <i class="fas fa-arrow-right arrow"></i>
+                                <div class="from-to">
+                                    <i class="fas fa-location-dot"></i>
+                                    <span class="city">Брест</span>
+                                </div>
+                            </div>
+                            <div class="time">
+                                <i class="far fa-clock"></i>
+                                <span>08:00</span> → <span>08:45</span>
+                                <span>•</span>
+                                <i class="fas fa-hourglass-half"></i>
+                                <span>45 мин</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flight-action">
+                        <div class="price">
+                            89 BYN
+                        </div>
+                        <button class="select-btn">
+                            <i class="fas fa-check-circle"></i> Выбрать
+                        </button>
+                    </div>
+                </div>
 
-            <div class="pagination" id="pagination">
-                <button class="page-btn" id="prevPage"><i class="fas fa-chevron-left"></i></button>
-                <span class="page-numbers" id="pageNumbers"></span>
-                <button class="page-btn" id="nextPage"><i class="fas fa-chevron-right"></i></button>
+                <!-- Рейс 2 -->
+                <div class="flight-card">
+                    <div class="flight-info">
+                        <div class="airline-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="route-info">
+                            <div class="route">
+                                <div class="from-to">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span class="city">Минск</span>
+                                </div>
+                                <i class="fas fa-arrow-right arrow"></i>
+                                <div class="from-to">
+                                    <i class="fas fa-location-dot"></i>
+                                    <span class="city">Брест</span>
+                                </div>
+                            </div>
+                            <div class="time">
+                                <i class="far fa-clock"></i>
+                                <span>11:30</span> → <span>12:15</span>
+                                <span>•</span>
+                                <i class="fas fa-hourglass-half"></i>
+                                <span>45 мин</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flight-action">
+                        <div class="price">
+                            79 BYN
+                        </div>
+                        <button class="select-btn">
+                            <i class="fas fa-check-circle"></i> Выбрать
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Рейс 3 -->
+                <div class="flight-card">
+                    <div class="flight-info">
+                        <div class="airline-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="route-info">
+                            <div class="route">
+                                <div class="from-to">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span class="city">Минск</span>
+                                </div>
+                                <i class="fas fa-arrow-right arrow"></i>
+                                <div class="from-to">
+                                    <i class="fas fa-location-dot"></i>
+                                    <span class="city">Брест</span>
+                                </div>
+                            </div>
+                            <div class="time">
+                                <i class="far fa-clock"></i>
+                                <span>14:30</span> → <span>15:15</span>
+                                <span>•</span>
+                                <i class="fas fa-hourglass-half"></i>
+                                <span>45 мин</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flight-action">
+                        <div class="price">
+                            99 BYN
+                        </div>
+                        <button class="select-btn">
+                            <i class="fas fa-check-circle"></i> Выбрать
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Рейс 4 -->
+                <div class="flight-card">
+                    <div class="flight-info">
+                        <div class="airline-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="route-info">
+                            <div class="route">
+                                <div class="from-to">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span class="city">Минск</span>
+                                </div>
+                                <i class="fas fa-arrow-right arrow"></i>
+                                <div class="from-to">
+                                    <i class="fas fa-location-dot"></i>
+                                    <span class="city">Брест</span>
+                                </div>
+                            </div>
+                            <div class="time">
+                                <i class="far fa-clock"></i>
+                                <span>17:00</span> → <span>17:45</span>
+                                <span>•</span>
+                                <i class="fas fa-hourglass-half"></i>
+                                <span>45 мин</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flight-action">
+                        <div class="price">
+                            69 BYN
+                        </div>
+                        <button class="select-btn">
+                            <i class="fas fa-check-circle"></i> Выбрать
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Рейс 5 -->
+                <div class="flight-card">
+                    <div class="flight-info">
+                        <div class="airline-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="route-info">
+                            <div class="route">
+                                <div class="from-to">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span class="city">Минск</span>
+                                </div>
+                                <i class="fas fa-arrow-right arrow"></i>
+                                <div class="from-to">
+                                    <i class="fas fa-location-dot"></i>
+                                    <span class="city">Брест</span>
+                                </div>
+                            </div>
+                            <div class="time">
+                                <i class="far fa-clock"></i>
+                                <span>19:30</span> → <span>20:15</span>
+                                <span>•</span>
+                                <i class="fas fa-hourglass-half"></i>
+                                <span>45 мин</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flight-action">
+                        <div class="price">
+                            59 BYN
+                        </div>
+                        <button class="select-btn">
+                            <i class="fas fa-check-circle"></i> Выбрать
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Рейс 6 -->
+                <div class="flight-card">
+                    <div class="flight-info">
+                        <div class="airline-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="route-info">
+                            <div class="route">
+                                <div class="from-to">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span class="city">Минск</span>
+                                </div>
+                                <i class="fas fa-arrow-right arrow"></i>
+                                <div class="from-to">
+                                    <i class="fas fa-location-dot"></i>
+                                    <span class="city">Брест</span>
+                                </div>
+                            </div>
+                            <div class="time">
+                                <i class="far fa-clock"></i>
+                                <span>21:00</span> → <span>21:45</span>
+                                <span>•</span>
+                                <i class="fas fa-hourglass-half"></i>
+                                <span>45 мин</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flight-action">
+                        <div class="price">
+                            49 BYN
+                        </div>
+                        <button class="select-btn">
+                            <i class="fas fa-check-circle"></i> Выбрать
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Рейс 7 -->
+                <div class="flight-card">
+                    <div class="flight-info">
+                        <div class="airline-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="route-info">
+                            <div class="route">
+                                <div class="from-to">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span class="city">Минск</span>
+                                </div>
+                                <i class="fas fa-arrow-right arrow"></i>
+                                <div class="from-to">
+                                    <i class="fas fa-location-dot"></i>
+                                    <span class="city">Брест</span>
+                                </div>
+                            </div>
+                            <div class="time">
+                                <i class="far fa-clock"></i>
+                                <span>22:30</span> → <span>23:15</span>
+                                <span>•</span>
+                                <i class="fas fa-hourglass-half"></i>
+                                <span>45 мин</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flight-action">
+                        <div class="price">
+                            39 BYN
+                        </div>
+                        <button class="select-btn">
+                            <i class="fas fa-check-circle"></i> Выбрать
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -46,12 +387,24 @@
     <footer class="footer">
         <div class="footer-grid">
             <div class="footer-col">
-                <div class="footer-icon-row"><i class="fas fa-phone-alt"></i><span>+375 29 123 45 67</span></div>
-                <div class="footer-icon-row"><i class="far fa-envelope"></i><span>support@justair.aero</span></div>
+                <div class="footer-icon-row">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+375 29 123 45 67</span>
+                </div>
+                <div class="footer-icon-row">
+                    <i class="far fa-envelope"></i>
+                    <span>support@justair.aero</span>
+                </div>
             </div>
             <div class="footer-col">
-                <div class="footer-icon-row"><i class="fas fa-map-pin"></i><span>г. Минск, ул. Авиационная 12</span></div>
-                <div class="footer-icon-row"><i class="fas fa-clock"></i><span>Ежедневно 9:00 - 21:00</span></div>
+                <div class="footer-icon-row">
+                    <i class="fas fa-map-pin"></i>
+                    <span>г. Минск, ул. Авиационная 12</span>
+                </div>
+                <div class="footer-icon-row">
+                    <i class="fas fa-clock"></i>
+                    <span>Ежедневно 9:00 - 21:00</span>
+                </div>
             </div>
             <div class="footer-col">
                 <div class="social-icons">
@@ -70,6 +423,6 @@
         </div>
     </footer>
 
-    <script src="js/search.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
