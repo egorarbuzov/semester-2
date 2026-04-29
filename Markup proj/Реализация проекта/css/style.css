@@ -221,6 +221,10 @@ body {
   gap: 2rem;
   justify-content: center;
 }
+.card-grid a {
+  color: black;
+  text-decoration: none;
+}
 
 .help-card-link {
   text-decoration: none;
@@ -495,4 +499,21 @@ hr {
   .card-title {
     font-size: 1.3rem;
   }
+}
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.social-icons .social-icon {
+  width: 22px;
+  height: 22px;
+  stroke: #4a5568;
+  fill: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.social-icons .social-icon:hover {
+  stroke: #8a2c2d;
+  transform: translateY(-2px);
 }/*# sourceMappingURL=style.css.map */

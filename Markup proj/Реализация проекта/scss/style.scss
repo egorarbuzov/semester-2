@@ -240,6 +240,11 @@ $dropdown-shadow: 0 12px 28px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.02)
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
 }
 
 .help-card-link {
@@ -542,5 +547,26 @@ hr {
     
     .card-title { 
         font-size: 1.3rem; 
+    }
+}
+
+// Стили для SVG иконок социальных сетей
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    
+    .social-icon {
+        width: 22px;
+        height: 22px;
+        stroke: $text-muted;
+        fill: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        
+        &:hover {
+            stroke: $primary;
+            transform: translateY(-2px);
+        }
     }
 }

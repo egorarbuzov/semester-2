@@ -347,4 +347,21 @@ hr {
     min-width: 240px;
     right: -10px;
   }
+}
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.social-icons .social-icon {
+  width: 22px;
+  height: 22px;
+  stroke: #4a5568;
+  fill: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.social-icons .social-icon:hover {
+  stroke: #8a2c2d;
+  transform: translateY(-2px);
 }/*# sourceMappingURL=services.css.map */

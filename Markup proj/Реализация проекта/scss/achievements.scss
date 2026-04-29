@@ -370,3 +370,24 @@ hr {
         right: -10px;
     }
 }
+
+// Стили для SVG иконок социальных сетей
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    
+    .social-icon {
+        width: 22px;
+        height: 22px;
+        stroke: $text-muted;
+        fill: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        
+        &:hover {
+            stroke: $primary;
+            transform: translateY(-2px);
+        }
+    }
+}
